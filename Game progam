@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Arcano D20</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #4c1d95, #12001f);
+      color: #eee;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 20px;
+      text-shadow: 0 0 12px #a855f7;
+    }
+    .dado {
+      font-size: 90px;
+      margin: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .dado:hover {
+      transform: scale(1.15) rotate(5deg);
+    }
+    .painel {
+      background: rgba(0,0,0,0.5);
+      margin: 15px;
+      padding: 15px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px #7c3aed;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎲 ARCANO D20</h1>
+
+<div class="dado" onclick="rolarDado()">🎲</div>
+
+<div class="painel" id="resultado">
+  Clique no dado para rolar
+</div>
+
+<div class="painel">
+  ❤️ Vida: <span id="vida">100</span><br>
+  🔮 Mana: <span id="mana">60</span>
+</div>
+
+<script>
+  function rolarDado() {
+    const n = Math.floor(Math.random() * 20) + 1;
+    document.getElementById("resultado").innerText =
+      "Resultado do D20: " + n;
+
+    if (n === 20) {
+      alert("🔥 CRÍTICO ABSOLUTO! 🔥");
+    } else if (n >= 18) {
+      alert("⚡ RESULTADO ÉPICO ⚡");
+    }
+  }
+</script>
+
+</body>
+</html>
